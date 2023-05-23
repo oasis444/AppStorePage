@@ -18,6 +18,8 @@
 		33F0E8552A1A733B003B5CF7 /* todayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F0E8542A1A733B003B5CF7 /* todayCell.swift */; };
 		33F0E8592A1AA2B8003B5CF7 /* TodayHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F0E8582A1AA2B8003B5CF7 /* TodayHeaderView.swift */; };
 		33F0E85C2A1B1581003B5CF7 /* AppVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F0E85B2A1B1581003B5CF7 /* AppVC.swift */; };
+		33F0E85E2A1BBB3B003B5CF7 /* FeatureSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F0E85D2A1BBB3B003B5CF7 /* FeatureSectionView.swift */; };
+		33F0E8602A1BCB3E003B5CF7 /* FeatureSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F0E85F2A1BCB3E003B5CF7 /* FeatureSectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		33F0E8542A1A733B003B5CF7 /* todayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todayCell.swift; sourceTree = "<group>"; };
 		33F0E8582A1AA2B8003B5CF7 /* TodayHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayHeaderView.swift; sourceTree = "<group>"; };
 		33F0E85B2A1B1581003B5CF7 /* AppVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVC.swift; sourceTree = "<group>"; };
+		33F0E85D2A1BBB3B003B5CF7 /* FeatureSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureSectionView.swift; sourceTree = "<group>"; };
+		33F0E85F2A1BCB3E003B5CF7 /* FeatureSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureSectionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				33F0E85B2A1B1581003B5CF7 /* AppVC.swift */,
+				33F0E85D2A1BBB3B003B5CF7 /* FeatureSectionView.swift */,
+				33F0E85F2A1BCB3E003B5CF7 /* FeatureSectionCell.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -189,6 +195,8 @@
 				33F0E8552A1A733B003B5CF7 /* todayCell.swift in Sources */,
 				33F0E85C2A1B1581003B5CF7 /* AppVC.swift in Sources */,
 				33F0E8592A1AA2B8003B5CF7 /* TodayHeaderView.swift in Sources */,
+				33F0E8602A1BCB3E003B5CF7 /* FeatureSectionCell.swift in Sources */,
+				33F0E85E2A1BBB3B003B5CF7 /* FeatureSectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

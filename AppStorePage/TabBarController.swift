@@ -6,11 +6,9 @@
 //
 
 import UIKit
-import SnapKit
-// ※ UICollectionViewCompositionalLayout을 사용하면 편리하지만 View의 계층 구조를 알아보기 위해 아래와 같은 방법으로 진행
 
 class TabBarController: UITabBarController {
-
+    
     private lazy var todayVC: UIViewController = {
         let vc = TodayVC()
         vc.tabBarItem = UITabBarItem(
