@@ -10,15 +10,15 @@ import SnapKit
 
 class TodayHeaderView: UICollectionReusableView {
     
-    var headerInfo: (date: String, title: String)?
-    
-    func setup() {
+    func setup(date: String, title: String) {
         setupHeaderView()
+        
+        dateLabel.text = date
+        titleLabel.text = title
     }
     
     private lazy var dateLabel: UILabel = {
         let label = UILabel()
-        label.text = headerInfo?.date
         label.font = .systemFont(ofSize: 14, weight: .semibold)
         label.textColor = .secondaryLabel
         return label
@@ -26,7 +26,6 @@ class TodayHeaderView: UICollectionReusableView {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = headerInfo?.title
         label.font = .systemFont(ofSize: 36, weight: .black)
         label.textColor = .label
         return label

@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-// ※ UICollectionViewCompositionalLayout을 사용하면 편리하지만 View의 계층 구조를 알아보기 위해 아래와 같은 방법으로 진행
 
 final class AppVC: UIViewController {
     
@@ -20,11 +19,8 @@ final class AppVC: UIViewController {
         stackView.spacing = 0
 
         let featureSectionView = FeatureSectionView(frame: .zero)
-        let rankingFeatureSectionView = UIView()
-        let exchangeCodeButtonView = UIView()
-        
-        rankingFeatureSectionView.backgroundColor = .systemBlue
-        exchangeCodeButtonView.backgroundColor = .systemYellow
+        let rankingFeatureSectionView = RankingFeatureSectionView(frame: .zero)
+        let exchangeCodeButtonView = ExchangeCodeButtonView(frame: .zero)
         
         [featureSectionView, rankingFeatureSectionView, exchangeCodeButtonView].forEach {
             stackView.addArrangedSubview($0)
@@ -48,7 +44,6 @@ extension AppVC {
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-//            $0.top.equalToSuperview()
             $0.bottom.leading.trailing.equalToSuperview()
         }
         

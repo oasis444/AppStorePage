@@ -9,9 +9,15 @@ import UIKit
 import SnapKit
 
 final class FeatureSectionView: UIView {
+    
+    private var featureList: [Feature] = []
+    private let separatorView = SeparatorView(frame: .zero)
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setupViews()
+        fetchData()
     }
 
     required init?(coder: NSCoder) {
@@ -80,9 +86,10 @@ private extension FeatureSectionView {
         return layout
     }
     
-    func setupViews() {
-        self.addSubview(collectionView)
-        
+    private func setupViews() {
+        [collectionView, separatorView].forEach {
+            self.addSubview($0)
+        }
         collectionView.collectionViewLayout = layout()
         
         collectionView.snp.makeConstraints {
@@ -90,17 +97,33 @@ private extension FeatureSectionView {
             $0.top.equalToSuperview().inset(16)
             $0.height.equalTo(snp.width)
         }
+        
+        separatorView.snp.makeConstraints {
+            $0.leading.trailing.bottom.equalToSuperview()
+            $0.top.equalTo(collectionView.snp.bottom).offset(16)
+        }
+    }
+    
+    private func fetchData() {
+        guard let url = Bundle.main.url(forResource: "Feature", withExtension: "plist") else { return }
+        do {
+            let data = try Data(contentsOf: url)
+            let result = try PropertyListDecoder().decode([Feature].self, from: data)
+            self.featureList = result
+        } catch {
+            print("error: \(error.localizedDescription)")
+        }
     }
 }
 
 extension FeatureSectionView: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return featureList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FeatureSectionCell", for: indexPath) as? FeatureSectionCell else { return UICollectionViewCell() }
-        cell.backgroundColor = .blue
+        cell.setup(feature: featureList[indexPath.item])
         return cell
     }
 }

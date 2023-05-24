@@ -6,23 +6,28 @@
 //
 
 import UIKit
-//import SnapKit
+import SnapKit
+import Kingfisher
 
 class todayCell: UICollectionViewCell {
     
-    var cellInfo: (image: UIImage, subTitleText: String, titleText: String, descriptonText: String)?
-    
-    func setup() {
+    func setup(today: Today) {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.3
         layer.shadowRadius = 10
         
         setupSubView()
+        
+        if let imageURL = URL(string: today.imageURL) {
+            imageView.kf.setImage(with: imageURL)
+        }
+        subTitleLabel.text = today.subTitle
+        titleLabel.text = today.title
+        descriptionLabel.text = today.description
     }
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = cellInfo?.image
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 12
@@ -32,7 +37,6 @@ class todayCell: UICollectionViewCell {
     
     private lazy var subTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = cellInfo?.subTitleText
         label.font = .systemFont(ofSize: 14, weight: .bold)
         label.textColor = .white
         return label
@@ -41,7 +45,6 @@ class todayCell: UICollectionViewCell {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = cellInfo?.titleText
         label.font = .systemFont(ofSize: 24, weight: .bold)
         label.textColor = .white
         return label
@@ -49,9 +52,9 @@ class todayCell: UICollectionViewCell {
     
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = cellInfo.debugDescription
         label.font = .systemFont(ofSize: 14, weight: .bold)
         label.textColor = .white
+        label.numberOfLines = 2
         return label
     }()
 }
